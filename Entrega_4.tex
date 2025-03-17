@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\input{packages/preamble1.tex}
+\author{\Large Joan Andrés Mercado Tandazo}
+\date{\Large UAM-ELECTRODINÁMICA CLÁSICA}
+\title{\huge \textbf{Tercera Entrega}}
+\begin{document}
+\maketitle
+\brightmode
+\section*{Problema 7}
+Trabajando en forma tridimensional y partiendo de la transformación
+de Lorentz del espacio-tiempo entre sistemas inerciales K y K' que
+se desplazan según el eje X, deducir de la covariancia Lorentz de las
+ecuaciones homogéneas de Maxwell la transformación del campo electromagnético.
+\vspace*{1em}
+\hrule
+\vspace*{1em}
+{\color{blue} Resolución:}\\
+Las ecuaciones homogéneas de Mawxell son: 
+\begin{eqnarray}
+    \nabla \cdot \vec{B} = 0\\
+    \nabla \times \vec{E} = -\dfrac{1}{c}\pdv{\vec{B}}{t}
+\end{eqnarray}
+En componentes se tiene: 
+\begin{eqnarray}
+    \pdv{B_x}{x} + \pdv{B_y}{y} + \pdv{B_z}{z} = 0\label{Gauss-K}\\
+    \pdv{E_z}{y} - \pdv{E_y}{z} = -\dfrac{1}{c}\pdv{B_x}{t}\label{Faraday-1-K}\\
+    \pdv{E_x}{z} - \pdv{E_z}{x} = -\dfrac{1}{c}\pdv{B_y}{t}\label{Faraday-2-K}\\
+    \pdv{E_z}{y} - \pdv{E_y}{z} = -\dfrac{1}{c}\pdv{B_z}{t}\label{Faraday-3-K}
+\end{eqnarray}    
+Por otro lado, las transformaciones de Lorentz entre los sistemas $K$ y $K'$: 
+
+\begin{eqnarray}
+    x' = \gamma \qty(x + \beta ct)\\
+    ct' = \gamma \qty (ct + \beta x)
+\end{eqnarray}
+Esto nos lleva a la siguiente relación entre operadores diferenciales: 
+\begin{eqnarray}
+    \pdv{x'} = \gamma \qty(\pdv{x} + \dfrac{\beta}{c}\pdv{t})\label{eq:partial x-x'}\\
+    \pdv{t'} = \gamma \qty(\pdv{t} + \beta c \pdv{t}) \label{eq:partial t-t'}\\
+    \pdv{y'} = \pdv{y} \label{eq: partial y-y'}\\
+    \pdv{z'} = \pdv{z} \label{eq: partial z-z'}
+\end{eqnarray}
+Imponiendo covarianza con las transformaciones de Lorentz se debe tener que en el sistema $K'$ se debe tener la siguiente forma de las ecuaciones de Maxwell: 
+\begin{eqnarray}
+    \pdv{B'_x}{x'} + \pdv{B'_y}{y'} + \pdv{B'_z}{z'} = 0 \label{eq:Gauss}\\
+    \pdv{E'_z}{y'} - \pdv{E'_y}{z'} = -\dfrac{1}{c}\pdv{B'_x}{t'}\label{eq:Faraday-1}\\
+    \pdv{E'_x}{z'} - \pdv{E'_z}{x'} = -\dfrac{1}{c}\pdv{B'_y}{t'}\label{eq:Faraday-2}\\
+    \pdv{E'_z}{y'} - \pdv{E'_y}{z'} = -\dfrac{1}{c}\pdv{B'_z}{t'}\label{eq:Faraday-3}
+\end{eqnarray}
+Aplicando las ec. \eqref{eq:partial x-x'}-\eqref{eq: partial z-z'} sobre la ec.\eqref{eq:Gauss}: 
+\begin{equation}
+    \gamma\pdv{B'_x}{x} + \gamma \dfrac{\beta}{c}\pdv{B'_x}{t} + \pdv{B'_y}{y} + \pdv{B'_z}{z} = 0 \label{eq:1}
+\end{equation}
+Podemos aplicar las ec. \eqref{eq:partial x-x'} - \eqref{eq: partial z-z'} sobre la componente $x$ de la ecuación de Faraday \eqref{eq:Faraday-1}: 
+\begin{gather}
+    \partial_y E_z - \partial_z E_y = -\dfrac{\gamma}{c}\qty(\partial_t B'_x + \beta c \partial_x B'_x)\nonumber\\
+    \partial_y E_z - \partial_z E_y  + \gamma\beta \partial_x B'_x = -\dfrac{\gamma}{c} \qty(\partial_t B'_x)  \overset{\eqref{eq:1}}{\;\Rightarrow\;}\nonumber\\
+    \;\Rightarrow\; \partial_y\qty(E'_z -\beta B'_y) - \partial_z\qty(E'_y + \beta B'_z) = -\dfrac{\gamma}{c}\partial_t B'_x (1-\beta^2 )\nonumber\\
+    \partial_y\qty(\gamma\qty(E'_z - \beta B'_y)) - \partial_z\qty(\gamma \qty(E'_y + \beta B'_z))= -\dfrac{1}{c} \partial_t B'_x \label{eq:Faraday-1-fin} 
+\end{gather}
+De la misma forma podemos operar sobre la componente y de la ley de Faraday \eqref{eq:Faraday-2}: 
+\begin{gather}
+    \partial_zE'_x - \gamma\qty(\partial_x + \dfrac{\beta}{c}\partial_t)E'_z  = -\dfrac{\gamma}{c}\qty(\partial_t  + \beta c \partial_x)B'_y\nonumber\\
+    \partial_z E'_x - \partial_x\qty(\gamma\qty(E'_z - \beta B'_y))=\dfrac{1}{c}\partial_t(\gamma\qty(B'_y - \beta E'_z))\label{eq:Faraday-2-fin}
+\end{gather}
+Y finalmente sobre la componente z de la ley de Faraday \eqref{eq:Faraday-3}: 
+\begin{gather}
+    \gamma\qty(\partial_x +\dfrac{\beta}{c}\partial_t)E'_y - \partial_y E'_x = \dfrac{\gamma}{c} \qty (\partial_t + \beta c\partial_x)B'_z\nonumber\\
+    \partial_x\qty(\gamma\qty(E'_y + \beta B'_z))-\partial_y E'_x = -\dfrac{1}{c}\partial_t\qty(\gamma\qty(B'_z + \beta E'_y))\label{eq:Faraday-3-fin}
+\end{gather}
+De esta forma, comparando las expresiones \eqref{eq:Faraday-1-fin}, \eqref{eq:Faraday-2-fin},\eqref{eq:Faraday-3-fin} con \eqref{eq:Faraday-3-fin} se tiene que la transformación del campo electromagnético entre los sistemas K y K' es de la siguiente forma:
+\begin{eqnarray}
+    E_x = E'_x\\
+    B_x = B'_x\\
+    E_y = E'_y +\beta B'_z\\
+    B_y = B'_y - \beta E'_z\\
+    E_z = E'_z -\beta B'_y\\
+    B_z = B'_z + \beta E'_y
+\end{eqnarray}
+\begin{flushright}
+ $\qed$   
+\end{flushright}
+\end{document}
