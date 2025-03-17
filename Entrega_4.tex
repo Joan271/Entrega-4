@@ -50,7 +50,7 @@ Esto nos lleva a la siguiente relación entre operadores diferenciales:
 \begin{subequations}\label{eq:partials}
 	\begin{empheq}[left=\eqref{eq:partials}\;\empheqlbrace]{align}
 		\pdv{x'} &= \gamma \qty(\pdv{x} + \dfrac{\beta}{c}\pdv{t})\label{eq:partial x-x'}\\
-		\pdv{t'} &= \gamma \qty(\pdv{t} + \beta c \pdv{t}) \label{eq:partial t-t'}\\
+		\pdv{t'} &= \gamma \qty(\pdv{t} + \beta c \pdv{x}) \label{eq:partial t-t'}\\
 		\pdv{y'} &= \pdv{y} \label{eq: partial y-y'}\\
 		\pdv{z'} &= \pdv{z} \label{eq: partial z-z'}
 	\end{empheq}
@@ -61,7 +61,7 @@ Imponiendo covarianza con las transformaciones de Lorentz se debe tener que en e
 		\pdv{B'_x}{x'} + \pdv{B'_y}{y'} + \pdv{B'_z}{z'} = 0 \label{eq:Gauss}\\
 		\pdv{E'_z}{y'} - \pdv{E'_y}{z'} = -\dfrac{1}{c}\pdv{B'_x}{t'}\label{eq:Faraday-1}\\
 		\pdv{E'_x}{z'} - \pdv{E'_z}{x'} = -\dfrac{1}{c}\pdv{B'_y}{t'}\label{eq:Faraday-2}\\
-		\pdv{E'_z}{y'} - \pdv{E'_y}{z'} = -\dfrac{1}{c}\pdv{B'_z}{t'}\label{eq:Faraday-3}
+		\pdv{E'_y}{x'} - \pdv{E'_x}{y'} = -\dfrac{1}{c}\pdv{B'_z}{t'}\label{eq:Faraday-3}
 	\end{empheq}
 \end{subequations}
 Aplicando las ec. \eqref{eq:partials} sobre la ec.\eqref{eq:Gauss}:
@@ -82,7 +82,7 @@ De la misma forma podemos operar sobre la componente y de la ley de Faraday \eqr
 \end{gather}
 Y finalmente sobre la componente z de la ley de Faraday \eqref{eq:Faraday-3}:
 \begin{gather}
-	\gamma\qty(\partial_x +\dfrac{\beta}{c}\partial_t)E'_y - \partial_y E'_x = \dfrac{\gamma}{c} \qty (\partial_t + \beta c\partial_x)B'_z\nonumber\\
+	\gamma\qty(\partial_x +\dfrac{\beta}{c}\partial_t)E'_y - \partial_y E'_x = -\dfrac{\gamma}{c} \qty (\partial_t + \beta c\partial_x)B'_z\nonumber\\
 	\partial_x\qty(\gamma\qty(E'_y + \beta B'_z))-\partial_y E'_x = -\dfrac{1}{c}\partial_t\qty(\gamma\qty(B'_z + \beta E'_y))\label{eq:Faraday-3-fin}
 \end{gather}
 De esta forma, comparando las expresiones \eqref{eq:Faraday-1-fin}-\eqref{eq:Faraday-3-fin} con las ecuaciones de Maxwell en el sistema K' \eqref{eq:Maxwell K'} se tiene que la transformación del campo electromagnético entre los sistemas es de la siguiente forma:
